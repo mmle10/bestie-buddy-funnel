@@ -5,13 +5,13 @@ import { FunnelProvider } from '@/context/FunnelContext'
 import Funnel from '@/components/Funnel'
 
 const heebo = Heebo({
-  subsets: ['latin'],
+  subsets: ['latin', 'hebrew'],
   variable: '--font-heebo',
 })
 
 export const metadata: Metadata = {
-  title: 'BUDDY - Bestie & Amigo',
-  description: 'Smart digital friends that strengthen, empower and give tools for coping',
+  title: 'BUDDY - בסטי ואמיגו',
+  description: 'חברים דיגיטליים חכמים שמחזקים מעצימים ונותנים כלים להתמודדות',
 }
 
 export default function RootLayout({

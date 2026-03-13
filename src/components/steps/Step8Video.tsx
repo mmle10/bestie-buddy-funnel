@@ -16,7 +16,7 @@ export default function Step8Video() {
     >
       <div className="text-center">
         <p className="text-lg">
-          With Bestie & Amigo, kids are more confident, happy, social, sharing, calm and eager to learn
+          עם בסטי ואמיגו הילדים יותר בטוחים שמחים חברותיים משתפים רגועים ולומדים
         </p>
       </div>
 
@@ -32,7 +32,7 @@ export default function Step8Video() {
           onClick={nextStep}
           className="px-8 py-3 bg-brand-primary text-white rounded-xl font-medium"
         >
-          Continue
+          המשך
         </motion.button>
       </div>
     </motion.div>

@@ -33,7 +33,7 @@ export default function Step2Name() {
       className="space-y-8"
     >
       <div className="text-center">
-        <h2 className="text-xl font-bold">What is your child&apos;s name?</h2>
+        <h2 className="text-xl font-bold">מה שם הילד/ה?</h2>
       </div>
 
       <div className="space-y-4 max-w-sm mx-auto">
@@ -41,7 +41,7 @@ export default function Step2Name() {
           type="text"
           value={name}
           onChange={(e) => handleNameChange(e.target.value)}
-          placeholder="Enter name"
+          placeholder="הקלידו את השם"
           className="w-full py-3 px-4 rounded-xl border-2 border-gray-200 focus:border-brand-primary outline-none text-center"
         />
 
@@ -62,7 +62,7 @@ export default function Step2Name() {
               }`}
             >
               <span className="text-4xl">👦</span>
-              <span>Boy</span>
+              <span>בן</span>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02 }}
@@ -75,7 +75,7 @@ export default function Step2Name() {
               }`}
             >
               <span className="text-4xl">👧</span>
-              <span>Girl</span>
+              <span>בת</span>
             </motion.button>
           </motion.div>
         )}

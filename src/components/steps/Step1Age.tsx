@@ -16,8 +16,8 @@ export default function Step1Age() {
       className="space-y-8"
     >
       <div className="text-center space-y-2">
-        <h2 className="text-xl font-bold">What is your child&apos;s age?</h2>
-        <p className="text-gray-600 text-sm">This helps us tailor the activities</p>
+        <h2 className="text-xl font-bold">מה גיל הילד/ה?</h2>
+        <p className="text-gray-600 text-sm">זה יעזור לנו להתאים את התרגילים</p>
       </div>
 
       <div className="grid grid-cols-3 gap-3 max-w-sm mx-auto">

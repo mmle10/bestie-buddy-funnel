@@ -4,17 +4,17 @@ import { motion } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 
 const LEVELS = [
-  'Self confidence',
-  'Self confidence & emotional resilience',
-  'Self confidence, emotional resilience & inner calm',
-  'Self confidence, emotional resilience, inner calm & sense of belonging',
-  'Self confidence, emotional resilience, inner calm, belonging & social initiative',
-  'Self confidence, emotional resilience, inner calm, belonging, social initiative, self-image, focus & academic calm',
+  'ביטחון עצמי',
+  'ביטחון עצמי וחוסן רגשי',
+  'ביטחון עצמי חוסן רגשי ורוגע פנימי',
+  'ביטחון עצמי חוסן רגשי רוגע פנימי תחושת שייכות',
+  'ביטחון עצמי חוסן רגשי רוגע פנימי תחושת שייכות יוזמה חברתית',
+  'ביטחון עצמי חוסן רגשי רוגע פנימי תחושת שייכות יוזמה חברתית דימוי עצמי ריכוז ורוגע לימודי',
 ]
 
 export default function Step6ProgressGraph() {
   const { data, nextStep } = useFunnel()
-  const name = data.childName || 'your child'
+  const name = data.childName || 'הילד/ה'
 
   return (
     <motion.div
@@ -25,10 +25,10 @@ export default function Step6ProgressGraph() {
     >
       <div className="text-center space-y-1">
         <h2 className="text-xl font-bold">
-          What progress will {name} make?
+          מה תהיה ההתקדמות של {name}?
         </h2>
         <p className="text-sm text-gray-600">
-          Thanks to practical tools built by certified coaches
+          בזכות הכלים הפרקטיים שנבנו ע&quot;י מאמנים מוסכמים בשיטת הנ.ל.פ
         </p>
       </div>
 
@@ -58,7 +58,7 @@ export default function Step6ProgressGraph() {
           onClick={nextStep}
           className="px-8 py-3 bg-brand-primary text-white rounded-xl font-medium"
         >
-          Continue
+          המשך
         </motion.button>
       </div>
     </motion.div>

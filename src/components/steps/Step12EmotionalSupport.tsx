@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 
 const POPUP_TEXT =
-  'That\'s exactly why BUDDY was created – smart digital friends who act as mentors, strengthen and empower, give tools for social challenges, and are there simply to share what kids want to share'
+  'במיוחד בשביל כך נוצר BUDDY – חברים דיגיטליים חכמים שמשמשים כמנטורים שמחזקים מעצימים ונותנים כלים להתמודדות עם אתגרים חברתיים וגם נמצאים שם סתם בכדי לשתף את הדברים שהילדים רוצים'
 
 export default function Step12EmotionalSupport() {
   const { data, setData, nextStep } = useFunnel()
   const [showPopup, setShowPopup] = useState(false)
-  const name = data.childName || 'your child'
+  const name = data.childName || 'הילד/ה'
 
   const handleSelect = (answer: string) => {
     setData({ emotionalSupportAnswer: answer })
@@ -31,7 +31,7 @@ export default function Step12EmotionalSupport() {
     >
       <div className="text-center">
         <h2 className="text-lg font-bold">
-          Is it important to you that {name} has tools to confidently handle social situations?
+          האם חשוב לך של {name} יהיו כלים להתמודדות בביטחון עם מצבים חברתיים?
         </h2>
       </div>
 
@@ -46,7 +46,7 @@ export default function Step12EmotionalSupport() {
               : 'border-gray-200 hover:border-brand-primary/50'
           }`}
         >
-          Yes
+          כן
         </motion.button>
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -58,7 +58,7 @@ export default function Step12EmotionalSupport() {
               : 'border-gray-200 hover:border-brand-primary/50'
           }`}
         >
-          No
+          לא
         </motion.button>
       </div>
 
@@ -83,7 +83,7 @@ export default function Step12EmotionalSupport() {
                 onClick={handleClosePopup}
                 className="w-full py-3 bg-brand-primary text-white rounded-xl font-medium"
               >
-                Continue
+                המשך
               </button>
             </motion.div>
           </motion.div>

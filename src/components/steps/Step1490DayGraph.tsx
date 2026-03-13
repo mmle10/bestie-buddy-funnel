@@ -4,14 +4,14 @@ import { motion } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 
 const STAGES = [
-  'Building self-confidence',
-  'Growing sense of belonging and emotional resilience',
-  'More calm, confidence and resilience with noticeable behaviour improvement',
+  'צבירת ביטחון עצמי',
+  'יש כבר תחושת שייכות וחוסן רגשי',
+  'יש יותר רוגע, יותר ביטחון יותר חוסן ויש שיפור ניכר בהתנהגות',
 ]
 
 export default function Step1490DayGraph() {
   const { data, nextStep } = useFunnel()
-  const name = data.childName || 'your child'
+  const name = data.childName || 'הילד/ה'
 
   return (
     <motion.div
@@ -22,7 +22,7 @@ export default function Step1490DayGraph() {
     >
       <div className="text-center">
         <h2 className="text-xl font-bold">
-          This is the progress {name} will see in just 90 days
+          כך תראה ההתקדמות של {name} ב-90 יום בלבד
         </h2>
       </div>
 
@@ -52,7 +52,7 @@ export default function Step1490DayGraph() {
           onClick={nextStep}
           className="px-8 py-3 bg-brand-primary text-white rounded-xl font-medium"
         >
-          Continue
+          המשך
         </motion.button>
       </div>
     </motion.div>

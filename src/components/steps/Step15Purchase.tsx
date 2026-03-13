@@ -9,21 +9,21 @@ const PLANS = [
   {
     id: '12months' as const,
     icon: '👑',
-    title: 'Confidence & supportive space 24/7',
-    oldPrice: '$62',
-    newPrice: '$49',
-    period: '/month',
-    total: '$599 total',
+    title: 'שימור הביטחון העצמי ומרחב שיתופי מעצים 24/7',
+    oldPrice: '62 ₪',
+    newPrice: '49 ₪',
+    period: 'לחודש',
+    total: '599 ₪',
     coupon: '25%',
   },
   {
     id: '3months' as const,
     icon: '⚡',
-    title: 'Building self-confidence',
-    oldPrice: '$125',
-    newPrice: '$99',
-    period: '/month',
-    total: '$299 total',
+    title: 'בניית ביטחון עצמי',
+    oldPrice: '125 ₪',
+    newPrice: '99 ₪',
+    period: 'לחודש',
+    total: '299 ₪',
     coupon: '25%',
   },
 ]
@@ -76,7 +76,7 @@ export default function Step15Purchase() {
       setIsSuccess(true)
     } catch (err) {
       console.error(err)
-      setError('Something went wrong. Please try again.')
+      setError('שגיאה בשמירה. נסה שוב.')
     } finally {
       setIsSubmitting(false)
     }
@@ -90,9 +90,9 @@ export default function Step15Purchase() {
         className="text-center space-y-6 py-8"
       >
         <div className="text-6xl">🎉</div>
-        <h2 className="text-2xl font-bold">Thank you!</h2>
+        <h2 className="text-2xl font-bold">תודה רבה!</h2>
         <p className="text-gray-600 max-w-sm mx-auto">
-          We&apos;ve received your information. Check your email at <strong>{data.email}</strong> for next steps to complete your subscription and start your 7-day free trial.
+          קיבלנו את הפרטים שלך. בדוק את המייל <strong>{data.email}</strong> לשלבים הבאים להשלמת המנוי ולהתחלת 7 הימים בחינם.
         </p>
       </motion.div>
     )
@@ -106,18 +106,18 @@ export default function Step15Purchase() {
       className="space-y-6"
     >
       <div className="space-y-4">
-        <h2 className="text-xl font-bold text-center">Choose a plan</h2>
+        <h2 className="text-xl font-bold text-center">בחירת מנוי</h2>
         <div className="bg-brand-primary/5 rounded-xl p-4 text-sm text-gray-700 space-y-2">
-          <p className="font-medium text-brand-primary">What you receive:</p>
+          <p className="font-medium text-brand-primary">מה תקבלו:</p>
           <ul className="list-disc list-inside space-y-1 text-gray-600">
-            <li>Access to BUDDY – smart digital friends that strengthen and empower</li>
-            <li>Practical tools for emotional resilience and social confidence</li>
-            <li>Personalized content based on your child&apos;s interests</li>
-            <li>24/7 supportive space for sharing and growth</li>
+            <li>גישה ל-BUDDY – חברים דיגיטליים חכמים שמחזקים ומעצימים</li>
+            <li>כלים מעשיים לחוסן רגשי וביטחון חברתי</li>
+            <li>תוכן מותאם אישית לפי תחומי העניין של הילד/ה</li>
+            <li>מרחב תומך 24/7 לשיתוף וצמיחה</li>
           </ul>
         </div>
         <p className="text-sm text-gray-600 text-center">
-          Try 7 days free • Cancel within 7 days of purchase • Payment after trial ends
+          נסו 7 ימים בחינם • ניתן לבטל בתוך 7 ימים מהרכישה • חיוב לאחר תקופת הניסיון
         </p>
       </div>
 
@@ -148,7 +148,7 @@ export default function Step15Purchase() {
                   {plan.newPrice} {plan.period}
                 </span>
               </div>
-              <p className="text-sm text-gray-600 mt-1">Total: {plan.total}</p>
+              <p className="text-sm text-gray-600 mt-1">סה&quot;כ: {plan.total}</p>
               {selectedPlan === plan.id && (
                 <div className="absolute bottom-0 right-0 text-brand-primary text-2xl font-bold">
                   ✓
@@ -161,12 +161,12 @@ export default function Step15Purchase() {
 
       <div className="space-y-4 pt-4 border-t">
         <div className="bg-gray-50 rounded-xl p-4 text-sm space-y-3">
-          <p className="font-medium">How the trial works</p>
-          <p><strong>Step 1 – Today:</strong> After purchase you receive a BUDDY login link with instructions</p>
-          <p><strong>Step 2 – Within 7 days:</strong> You can send a cancellation message and get a full refund</p>
+          <p className="font-medium">איך עובדת תקופת הניסיון</p>
+          <p><strong>שלב 1 – היום:</strong> לאחר הרכישה מקבלים קישור התחברות ל-BUDDY עם הוראות שימוש</p>
+          <p><strong>שלב 2 – תוך 7 ימים:</strong> תוכלו לשלוח הודעת ביטול ולקבל החזר מלא</p>
         </div>
         <p className="text-xs text-gray-500 text-center">
-          Cancel within 7 days of purchase for a full refund
+          ניתן לבטל בתוך 7 ימים מהרכישה ולקבל החזר מלא
         </p>
       </div>
 
@@ -180,7 +180,7 @@ export default function Step15Purchase() {
         disabled={!selectedPlan || isSubmitting}
         className="w-full py-4 bg-brand-primary text-white rounded-xl font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {isSubmitting ? 'Processing...' : 'Continue to checkout'}
+        {isSubmitting ? 'מעבד...' : 'המשך לרכישה'}
       </motion.button>
     </motion.div>
   )

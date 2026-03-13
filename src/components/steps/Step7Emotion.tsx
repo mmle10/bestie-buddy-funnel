@@ -7,7 +7,7 @@ import { useFunnel } from '@/context/FunnelContext'
 export default function Step7Emotion() {
   const { data, setData, nextStep } = useFunnel()
   const [value, setValue] = useState(data.emotionValue ?? 50)
-  const name = data.childName || 'your child'
+  const name = data.childName || 'הילד/ה'
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = parseInt(e.target.value, 10)
@@ -29,16 +29,16 @@ export default function Step7Emotion() {
     >
       <div className="text-center">
         <h2 className="text-lg font-bold text-center">
-          How do you think a supportive space that gives practical tools could affect
+          איך לדעתך מרחב מחזק, מעצים ומקדם שנותן כלים מעשיים יכול להשפיע על ההרגשה
           <br />
-          how {name} feels?
+          של {name}?
         </h2>
       </div>
 
       <div className="space-y-6 max-w-md mx-auto">
         <div className="flex justify-between text-base font-medium text-gray-600 mb-3">
-          <span className="flex items-center gap-1">Sad <span className="text-2xl">😢</span></span>
-          <span className="flex items-center gap-1"><span className="text-2xl">🙂</span> Happy</span>
+          <span className="flex items-center gap-1">עצוב <span className="text-2xl">😢</span></span>
+          <span className="flex items-center gap-1"><span className="text-2xl">🙂</span> שמח</span>
         </div>
 
         <div className="relative py-4">
@@ -79,7 +79,7 @@ export default function Step7Emotion() {
           onClick={handleContinue}
           className="px-8 py-3 bg-brand-primary text-white rounded-xl font-medium"
         >
-          Continue
+          המשך
         </motion.button>
       </div>
     </motion.div>

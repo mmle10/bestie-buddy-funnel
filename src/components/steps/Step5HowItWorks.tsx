@@ -5,18 +5,21 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 
 const BOXES = [
-  { id: 1, text: 'Something good that happened to you', video: '/videos/Box1.mp4' },
-  { id: 2, text: 'Something not so good or something that hurt you', video: '/videos/Box2.mp4' },
-  { id: 3, text: 'A question you\'re unsure about', video: '/videos/Box3.mp4' },
-  { id: 4, text: 'You don\'t feel like sharing anything and that\'s OK too', video: '/videos/Box4.mp4' },
+  { id: 1, text: 'במשהו טוב שקרה לך', video: '/videos/Box1.mp4' },
+  { id: 2, text: 'במשהו שפחות טוב או משהו שפגע בך', video: '/videos/Box2.mp4' },
+  { id: 3, text: 'בשאלה שיש לך התלבטות לגביה', video: '/videos/Box3.mp4' },
+  { id: 4, text: 'לא בא לך לשתף כלום וזה גם בסדר', video: '/videos/Box4.mp4' },
 ]
 
 export default function Step5HowItWorks() {
   const { data, nextStep } = useFunnel()
   const [videoPopup, setVideoPopup] = useState<string | null>(null)
 
-  const name = data.childName || 'your child'
-  const introText = `To show you how ${name} can get stronger and more confident from day one, here's how it works:`
+  const name = data.childName || 'הילד/ה'
+  const isFemale = data.childGender === 'female'
+  const introText = isFemale
+    ? `כדי להראות לכם איך ${name} יכולה להתחזק ולהתעצם כבר מהיום הראשון בואו תראו איך זה עובד:`
+    : `כדי להראות לכם איך ${name} יכול להתחזק ולהתעצם כבר מהיום הראשון בואו תראו איך זה עובד:`
 
   return (
     <motion.div
@@ -50,7 +53,7 @@ export default function Step5HowItWorks() {
           onClick={nextStep}
           className="px-8 py-3 bg-brand-primary text-white rounded-xl font-medium"
         >
-          Continue
+          המשך
         </motion.button>
       </div>
 
@@ -81,7 +84,7 @@ export default function Step5HowItWorks() {
                 onClick={() => setVideoPopup(null)}
                 className="w-full py-2 text-white bg-gray-800"
               >
-                Close
+                סגור
               </button>
             </motion.div>
           </motion.div>

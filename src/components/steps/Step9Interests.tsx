@@ -4,18 +4,18 @@ import { motion } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 
 const INTERESTS = [
-  'Sports / Dance',
-  'Art / Drawing',
-  'Music',
-  'Video games',
-  'Cooking & Baking',
-  'TV / Theatre',
-  'Other',
+  'ספורט / ריקוד',
+  'אמנות / ציור',
+  'נגינה / מוזיקה',
+  'משחקי מחשב',
+  'בישול ואפייה',
+  'טלוויזיה / תיאטרון',
+  'אחר',
 ]
 
 export default function Step9Interests() {
   const { data, setData, nextStep } = useFunnel()
-  const name = data.childName || 'your child'
+  const name = data.childName || 'הילד/ה'
   const selected = data.interests || []
 
   const toggle = (interest: string) => {
@@ -33,7 +33,7 @@ export default function Step9Interests() {
       className="space-y-6"
     >
       <div className="text-center">
-        <h2 className="text-xl font-bold">What are {name}&apos;s hobbies?</h2>
+        <h2 className="text-xl font-bold">מה התחביבים של {name}?</h2>
       </div>
 
       <div className="grid grid-cols-2 gap-3">
@@ -61,7 +61,7 @@ export default function Step9Interests() {
           onClick={nextStep}
           className="px-8 py-3 bg-brand-primary text-white rounded-xl font-medium"
         >
-          Continue
+          המשך
         </motion.button>
       </div>
     </motion.div>

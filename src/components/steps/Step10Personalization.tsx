@@ -15,7 +15,7 @@ export default function Step10Personalization() {
     >
       <div className="text-center">
         <p className="text-lg">
-          Bestie & Amigo connect to kids&apos; interests and remind them when they need positive motivation
+          בסטי ואמיגו מתחברים לתחומי העניין של הילדים ומזכירים להם אותם ברגעי הצורך להנעה ומוטיבציה חיובית
         </p>
       </div>
 
@@ -26,7 +26,7 @@ export default function Step10Personalization() {
           onClick={nextStep}
           className="px-8 py-3 bg-brand-primary text-white rounded-xl font-medium"
         >
-          Continue
+          המשך
         </motion.button>
       </div>
     </motion.div>

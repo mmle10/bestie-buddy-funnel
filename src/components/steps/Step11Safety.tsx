@@ -5,7 +5,7 @@ import { useFunnel } from '@/context/FunnelContext'
 
 export default function Step11Safety() {
   const { data, setData, nextStep } = useFunnel()
-  const name = data.childName || 'your child'
+  const name = data.childName || 'הילד/ה'
 
   const handleSelect = (answer: string) => {
     setData({ safetyAnswer: answer })
@@ -21,7 +21,7 @@ export default function Step11Safety() {
     >
       <div className="text-center">
         <h2 className="text-lg font-bold">
-          Does everything {name} does on their phone really strengthen, empower and help them grow?
+          האם כל מה ש{name} עושה בטלפון באמת מחזק מעצים ומקדם?
         </h2>
       </div>
 
@@ -36,7 +36,7 @@ export default function Step11Safety() {
               : 'border-gray-200 hover:border-brand-primary/50'
           }`}
         >
-          Yes
+          כן
         </motion.button>
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -48,7 +48,7 @@ export default function Step11Safety() {
               : 'border-gray-200 hover:border-brand-primary/50'
           }`}
         >
-          No
+          לא
         </motion.button>
       </div>
     </motion.div>

@@ -28,7 +28,7 @@ export default function Step13FreeTrial() {
       className="space-y-6"
     >
       <div className="text-center">
-        <h2 className="text-2xl font-bold">Get 7 days free as a gift</h2>
+        <h2 className="text-2xl font-bold">קבלו במתנה 7 ימים בחינם</h2>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4 max-w-sm mx-auto">
@@ -43,7 +43,7 @@ export default function Step13FreeTrial() {
           onBlur={() => {
             blurTimeout.current = setTimeout(() => setIsFormActive(false), 100)
           }}
-          placeholder="Email address"
+          placeholder="כתובת מייל"
           required
           className="w-full py-3 px-4 rounded-xl border-2 border-gray-200 focus:border-brand-primary outline-none"
           dir="ltr"
@@ -59,7 +59,7 @@ export default function Step13FreeTrial() {
           onBlur={() => {
             blurTimeout.current = setTimeout(() => setIsFormActive(false), 100)
           }}
-          placeholder="Phone number"
+          placeholder="מספר טלפון"
           required
           className="w-full py-3 px-4 rounded-xl border-2 border-gray-200 focus:border-brand-primary outline-none"
           dir="ltr"
@@ -75,7 +75,7 @@ export default function Step13FreeTrial() {
           whileTap={{ scale: 0.98 }}
           className="w-full py-3 bg-brand-primary text-white rounded-xl font-medium"
         >
-          Continue
+          המשך
         </motion.button>
       </form>
     </motion.div>

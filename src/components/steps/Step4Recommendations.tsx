@@ -29,7 +29,7 @@ export default function Step4Recommendations() {
       className="space-y-6"
     >
       <div className="text-center">
-        <h2 className="text-xl font-bold">What families say about us</h2>
+        <h2 className="text-xl font-bold">מספרים עלינו</h2>
       </div>
 
       <div className="overflow-hidden" ref={emblaRef}>
@@ -42,7 +42,7 @@ export default function Step4Recommendations() {
               <div className="relative w-full overflow-hidden rounded-2xl bg-white">
                 <Image
                   src={`/${id}.png`}
-                  alt={`Testimonial from family ${id}`}
+                  alt={`המלצה ${id}`}
                   width={400}
                   height={500}
                   className="h-auto w-full object-contain"
@@ -61,7 +61,7 @@ export default function Step4Recommendations() {
           onClick={nextStep}
           className="px-8 py-3 bg-brand-primary text-white rounded-xl font-medium"
         >
-          Continue
+          המשך
         </motion.button>
       </div>
     </motion.div>

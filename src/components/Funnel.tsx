@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 import Logo from '@/components/shared/Logo'
@@ -45,8 +46,12 @@ export default function Funnel() {
   const { currentStep, progress } = useFunnel()
   const StepComponent = STEPS[currentStep - 1]
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [currentStep])
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-brand-primary/5 to-white pt-12 md:pt-20 pb-12 px-4">
+    <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-brand-primary/5 to-white pt-12 md:pt-20 pb-12 px-4">
       <Logo />
       {/* <Characters /> */}
 
