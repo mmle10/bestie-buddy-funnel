@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-primary: #00d596;
+  --brand-secondary: #00b884;
+  --brand-accent: #ffd166;
+  --brand-dark: #1a1a2e;
+}
+
+body {
+  font-family: var(--font-heebo), sans-serif;
+}
+
+/* RTL support */
+[dir='rtl'] {
+  text-align: right;
+}
+
+/* Emotion slider - thumb is the track fill, face moves above */
+.emotion-slider {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.emotion-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.emotion-slider::-moz-range-thumb {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+}
