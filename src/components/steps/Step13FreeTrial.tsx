@@ -1,9 +1,8 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
-import GiftAnimation from '@/components/shared/GiftAnimation'
 
 export default function Step13FreeTrial() {
   const { data, setData, nextStep } = useFunnel()
@@ -11,6 +10,14 @@ export default function Step13FreeTrial() {
   const [phone, setPhone] = useState(data.phone || '')
   const [isFormActive, setIsFormActive] = useState(false)
   const blurTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+  const [giftJumpKey, setGiftJumpKey] = useState(0)
+
+  const isFilled = useMemo(() => {
+    return email.trim().length > 0 && phone.trim().length > 0
+  }, [email, phone])
+
+  const giftHighlighted = isFormActive || isFilled
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -20,6 +27,23 @@ export default function Step13FreeTrial() {
     }
   }
 
+  useEffect(() => {
+    const el = videoRef.current
+    if (!el) return
+    el.play().catch(() => {
+      // Autoplay may be blocked until the first user gesture; ignore.
+    })
+  }, [])
+
+  // Trigger a "pop/jump" animation only when highlight turns on.
+  const prevHighlightedRef = useRef<boolean>(false)
+  useEffect(() => {
+    if (giftHighlighted && !prevHighlightedRef.current) {
+      setGiftJumpKey((k) => k + 1)
+    }
+    prevHighlightedRef.current = giftHighlighted
+  }, [giftHighlighted])
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
@@ -28,7 +52,7 @@ export default function Step13FreeTrial() {
       className="space-y-6"
     >
       <div className="text-center">
-        <h2 className="text-2xl font-bold">קבלו במתנה 7 ימים בחינם</h2>
+        <h2 className="text-2xl font-bold">קבלו במתנה 7 ימים להתנסות</h2>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4 max-w-sm mx-auto">
@@ -66,7 +90,29 @@ export default function Step13FreeTrial() {
         />
 
         <div className="flex justify-center py-4">
-          <GiftAnimation progress={100} isHighlighted={isFormActive || (!!email && !!phone)} />
+          <motion.div
+            key={giftJumpKey}
+            animate={
+              giftHighlighted
+                ? { y: [0, -14, 0], rotate: [0, -6, 0], scale: [1, 1.08, 1] }
+                : { y: 0, rotate: 0, scale: 1 }
+            }
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            style={{ willChange: 'transform' }}
+          >
+            <div className="relative w-24 h-24">
+              <video
+                ref={videoRef}
+                src="/Pop-Up%20Gift.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="absolute inset-0 h-full w-full object-contain"
+              />
+            </div>
+          </motion.div>
         </div>
 
         <motion.button

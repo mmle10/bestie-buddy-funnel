@@ -19,7 +19,9 @@ export default function Step3Parent() {
       className="space-y-8"
     >
       <div className="text-center">
-        <h2 className="text-xl font-bold">האם את/ה הורה?</h2>
+        <h2 className="text-xl font-bold">
+          <span dir="ltr">?</span>האם את/ה הורה
+        </h2>
       </div>
 
       <div className="grid grid-cols-2 gap-4 max-w-xs mx-auto">

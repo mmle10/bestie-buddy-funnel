@@ -4,13 +4,14 @@ import { motion } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 
 const INTERESTS = [
-  'ספורט / ריקוד',
-  'אמנות / ציור',
-  'נגינה / מוזיקה',
-  'משחקי מחשב',
-  'בישול ואפייה',
-  'טלוויזיה / תיאטרון',
-  'אחר',
+  'ספורט / ריקוד ⚽',
+  'אמנות / ציור 🎨',
+  'נגינה /מוזיקה 🎵',
+  'משחקי מחשב 🎮',
+  'בישול ואפייה 🎂',
+  'טלוויזיה 📺',
+  'תיאטרון 🎭',
+  'אחר 🥇',
 ]
 
 export default function Step9Interests() {
@@ -33,7 +34,9 @@ export default function Step9Interests() {
       className="space-y-6"
     >
       <div className="text-center">
-        <h2 className="text-xl font-bold">מה התחביבים של {name}?</h2>
+        <h2 className="text-xl font-bold" style={{ direction: 'rtl' }}>
+          מה התחביבים של {name}<span dir="ltr">?</span>
+        </h2>
       </div>
 
       <div className="grid grid-cols-2 gap-3">

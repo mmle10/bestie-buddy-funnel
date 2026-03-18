@@ -4,8 +4,13 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 
-const POPUP_TEXT =
-  'במיוחד בשביל כך נוצר BUDDY – חברים דיגיטליים חכמים שמשמשים כמנטורים שמחזקים מעצימים ונותנים כלים להתמודדות עם אתגרים חברתיים וגם נמצאים שם סתם בכדי לשתף את הדברים שהילדים רוצים'
+const POPUP_TEXT = (
+  <>
+    במיוחד בשביל כך נוצר <span dir="ltr">BUDDY</span>
+    {'\u00A0\u00A0'}
+    חברים דיגטליים חכמים שמשמשים כמנטורים שמחזקים מעצימים ונותנים כלים להתמודדות עם אתגרים חברתיים וגם נמצאים שם סתם בכדי לשתף את הדברים שהילדים רוצים
+  </>
+)
 
 export default function Step12EmotionalSupport() {
   const { data, setData, nextStep } = useFunnel()
@@ -30,8 +35,8 @@ export default function Step12EmotionalSupport() {
       className="space-y-8"
     >
       <div className="text-center">
-        <h2 className="text-lg font-bold">
-          האם חשוב לך של {name} יהיו כלים להתמודדות בביטחון עם מצבים חברתיים?
+        <h2 className="text-lg font-bold" style={{ direction: 'rtl' }}>
+          האם חשוב לך של {name} יהיו כלים להתמודדות בביטחון עם מצבים חברתיים<span dir="ltr">?</span>
         </h2>
       </div>
 

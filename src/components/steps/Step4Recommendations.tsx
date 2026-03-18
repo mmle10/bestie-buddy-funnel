@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useCallback } from 'react'
+import { useEffect, useCallback, useRef } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -11,6 +11,42 @@ const TESTIMONIAL_IMAGES = [1, 2, 3, 4, 5]
 export default function Step4Recommendations() {
   const { nextStep } = useFunnel()
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' })
+  const audioCtxRef = useRef<AudioContext | null>(null)
+  const lastIndexRef = useRef<number | null>(null)
+
+  const playTransitionSound = useCallback(() => {
+    try {
+      const AudioContextClass =
+        window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
+      if (!AudioContextClass) return
+
+      if (!audioCtxRef.current) audioCtxRef.current = new AudioContextClass()
+      const ctx = audioCtxRef.current
+
+      // Resume in case the browser suspended it.
+      // If autoplay is blocked, this will throw and we simply ignore.
+      ctx.resume?.()
+
+      const oscillator = ctx.createOscillator()
+      const gain = ctx.createGain()
+
+      oscillator.type = 'sine'
+      oscillator.frequency.setValueAtTime(740, ctx.currentTime)
+
+      // Quick, subtle “tick” sound
+      gain.gain.setValueAtTime(0.0001, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.16, ctx.currentTime + 0.01)
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.09)
+
+      oscillator.connect(gain)
+      gain.connect(ctx.destination)
+
+      oscillator.start()
+      oscillator.stop(ctx.currentTime + 0.1)
+    } catch {
+      // Ignore sound errors (autoplay restrictions, unsupported browser, etc.)
+    }
+  }, [])
 
   const scrollNext = useCallback(() => {
     emblaApi?.scrollNext()
@@ -20,6 +56,41 @@ export default function Step4Recommendations() {
     const interval = setInterval(scrollNext, 4000)
     return () => clearInterval(interval)
   }, [scrollNext])
+
+  // Play the sound whenever the active slide changes (autoplay + manual swipe).
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const onSelect = () => {
+      // selectedScrollSnap() gives the slide "index" (normalized snap) Embla is currently showing.
+      const index = emblaApi.selectedScrollSnap()
+      if (lastIndexRef.current === index) return
+      lastIndexRef.current = index
+      playTransitionSound()
+    }
+
+    // Initialize so the first select doesn't immediately trigger a sound.
+    try {
+      lastIndexRef.current = emblaApi.selectedScrollSnap()
+    } catch {
+      // no-op
+    }
+
+    emblaApi.on('select', onSelect)
+    return () => {
+      emblaApi.off('select', onSelect)
+    }
+  }, [emblaApi, playTransitionSound])
+
+  useEffect(() => {
+    return () => {
+      try {
+        audioCtxRef.current?.close()
+      } catch {
+        // no-op
+      }
+    }
+  }, [])
 
   return (
     <motion.div

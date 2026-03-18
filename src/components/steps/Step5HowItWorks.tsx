@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 
 const BOXES = [
-  { id: 1, text: 'במשהו טוב שקרה לך', video: '/videos/Box1.mp4' },
-  { id: 2, text: 'במשהו שפחות טוב או משהו שפגע בך', video: '/videos/Box2.mp4' },
-  { id: 3, text: 'בשאלה שיש לך התלבטות לגביה', video: '/videos/Box3.mp4' },
-  { id: 4, text: 'לא בא לך לשתף כלום וזה גם בסדר', video: '/videos/Box4.mp4' },
+  { id: 1, text: 'במשהו טוב שקרה לך ☺️', video: '/videos/Box1.mp4' },
+  { id: 2, text: 'במשהו שפחות טוב או משהו שפגע בך 🙁', video: '/videos/Box2.mp4' },
+  { id: 3, text: 'בשאלה שיש לך התלבטות לגביה 🤔', video: '/videos/Box3.mp4' },
+  { id: 4, text: 'לא בא לך לשתף כלום ו.. זה גם בסדר 🫶', video: '/videos/Box4.mp4' },
 ]
 
 export default function Step5HowItWorks() {
@@ -18,8 +18,10 @@ export default function Step5HowItWorks() {
   const name = data.childName || 'הילד/ה'
   const isFemale = data.childGender === 'female'
   const introText = isFemale
-    ? `כדי להראות לכם איך ${name} יכולה להתחזק ולהתעצם כבר מהיום הראשון בואו תראו איך זה עובד:`
-    : `כדי להראות לכם איך ${name} יכול להתחזק ולהתעצם כבר מהיום הראשון בואו תראו איך זה עובד:`
+    ? `כדי להראות לך איך ${name} יכולה להתחזק ולהתעצם כבר מהיום הראשון
+יש ללחוץ על אחת מהדוגמאות ש ${name} יכולה לבחור ולשתף את בסטי`
+    : `כדי להראות לך איך ${name} יכול להתחזק ולהתעצם כבר מהיום הראשון
+יש ללחוץ על אחת מהדוגמאות ש${name} יכול לבחור ולשתף את אמיגו`
 
   return (
     <motion.div
@@ -29,7 +31,7 @@ export default function Step5HowItWorks() {
       className="space-y-6"
     >
       <div className="text-center">
-        <p className="text-lg">{introText}</p>
+        <p className="text-lg whitespace-pre-line">{introText}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
@@ -39,7 +41,7 @@ export default function Step5HowItWorks() {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setVideoPopup(box.video)}
-            className="p-6 rounded-xl bg-brand-primary/20 border-2 border-brand-primary/30 hover:bg-brand-primary/30 text-left font-medium"
+            className="p-6 rounded-xl bg-brand-primary/20 border-2 border-brand-primary/30 hover:bg-brand-primary/30 text-center font-medium flex items-center justify-center"
           >
             {box.text}
           </motion.button>

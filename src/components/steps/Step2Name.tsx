@@ -33,7 +33,9 @@ export default function Step2Name() {
       className="space-y-8"
     >
       <div className="text-center">
-        <h2 className="text-xl font-bold">מה שם הילד/ה?</h2>
+        <h2 className="text-xl font-bold" style={{ direction: 'rtl' }}>
+          מה שם הילד/ה<span dir="ltr">?</span>
+        </h2>
       </div>
 
       <div className="space-y-4 max-w-sm mx-auto">

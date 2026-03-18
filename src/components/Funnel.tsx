@@ -51,9 +51,9 @@ export default function Funnel() {
   }, [currentStep])
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-brand-primary/5 to-white pt-12 md:pt-20 pb-12 px-4">
+    <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-brand-primary/5 to-white pt-10 md:pt-16 pb-10 px-4">
       <Logo />
-      {/* <Characters /> */}
+      <Characters />
 
       <div className="max-w-lg mx-auto">
         <div className="flex items-center justify-between gap-4 mb-6">

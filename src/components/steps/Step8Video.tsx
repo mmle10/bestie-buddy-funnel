@@ -1,11 +1,20 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import { useFunnel } from '@/context/FunnelContext'
 
 export default function Step8Video() {
   const { nextStep } = useFunnel()
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+
+  useEffect(() => {
+    const el = videoRef.current
+    if (!el) return
+    el.play().catch(() => {
+      // Autoplay may be blocked until the first user gesture; ignore.
+    })
+  }, [])
 
   return (
     <motion.div
@@ -20,9 +29,17 @@ export default function Step8Video() {
         </p>
       </div>
 
-      {/* Placeholder for HAPPY KIDS photo */}
-      <div className="aspect-video bg-brand-primary/20 rounded-2xl flex items-center justify-center">
-        <span className="text-6xl">😊👫</span>
+      <div className="aspect-video bg-brand-primary/20 rounded-2xl overflow-hidden">
+        <video
+          ref={videoRef}
+          src="/Happy-kids.mov"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="h-full w-full object-contain"
+        />
       </div>
 
       <div className="text-center">

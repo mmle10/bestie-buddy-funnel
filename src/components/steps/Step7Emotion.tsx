@@ -28,10 +28,10 @@ export default function Step7Emotion() {
       className="space-y-8"
     >
       <div className="text-center">
-        <h2 className="text-lg font-bold text-center">
+        <h2 className="text-lg font-bold text-center" style={{ direction: 'rtl' }}>
           איך לדעתך מרחב מחזק, מעצים ומקדם שנותן כלים מעשיים יכול להשפיע על ההרגשה
           <br />
-          של {name}?
+          של {name}<span dir="ltr">?</span>
         </h2>
       </div>
 
