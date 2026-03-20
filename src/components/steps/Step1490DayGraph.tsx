@@ -1,17 +1,19 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
-
-const STAGES = [
-  'צבירת ביטחון עצמי',
-  'יש כבר תחושת שייכות וחוסן רגשי',
-  'יש יותר רוגע, יותר ביטחון יותר חוסן ויש שיפור ניכר בהתנהגות',
-]
 
 export default function Step1490DayGraph() {
   const { data, nextStep } = useFunnel()
   const name = data.childName || 'הילד/ה'
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+
+  useEffect(() => {
+    const el = videoRef.current
+    if (!el) return
+    el.play().catch(() => {})
+  }, [])
 
   return (
     <motion.div
@@ -26,23 +28,18 @@ export default function Step1490DayGraph() {
         </h2>
       </div>
 
-      <div className="space-y-3">
-        {STAGES.map((stage, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1, duration: 0.4, ease: 'easeOut' }}
-            className="flex items-center gap-3"
-          >
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-primary text-xs font-bold text-white">
-              {i + 1}
-            </span>
-            <div className="flex-1 py-2.5 px-4 bg-brand-primary/10 rounded-xl text-sm leading-relaxed">
-              {stage}
-            </div>
-          </motion.div>
-        ))}
+      <div className="w-full">
+        <div className="aspect-[2/1] w-full rounded-2xl overflow-hidden bg-brand-primary/10">
+          <video
+            ref={videoRef}
+            src="/gragh-14.mov"
+            autoPlay
+            loop
+            playsInline
+            preload="auto"
+            className="h-full w-full object-cover"
+          />
+        </div>
       </div>
 
       <div className="text-center">

@@ -89,7 +89,7 @@ export default function Step13FreeTrial() {
           dir="ltr"
         />
 
-        <div className="flex justify-center py-4">
+        <div className="flex justify-center">
           <motion.div
             key={giftJumpKey}
             animate={
@@ -100,7 +100,7 @@ export default function Step13FreeTrial() {
             transition={{ duration: 0.5, ease: 'easeOut' }}
             style={{ willChange: 'transform' }}
           >
-            <div className="relative w-24 h-24">
+            <div className="relative w-24 h-36">
               <video
                 ref={videoRef}
                 src="/Pop-Up%20Gift.mp4"
@@ -109,7 +109,7 @@ export default function Step13FreeTrial() {
                 loop
                 playsInline
                 preload="auto"
-                className="absolute inset-0 h-full w-full object-contain"
+                className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
           </motion.div>

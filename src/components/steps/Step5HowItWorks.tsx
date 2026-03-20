@@ -1,19 +1,28 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 
 const BOXES = [
-  { id: 1, text: 'במשהו טוב שקרה לך ☺️', video: '/videos/Box1.mp4' },
-  { id: 2, text: 'במשהו שפחות טוב או משהו שפגע בך 🙁', video: '/videos/Box2.mp4' },
-  { id: 3, text: 'בשאלה שיש לך התלבטות לגביה 🤔', video: '/videos/Box3.mp4' },
-  { id: 4, text: 'לא בא לך לשתף כלום ו.. זה גם בסדר 🫶', video: '/videos/Box4.mp4' },
+  { id: 1, text: 'במשהו שפחות טוב או משהו שפגע בך 🙁', video: '/Box-2.mp4' },
+  { id: 2, text: 'במשהו טוב שקרה לך ☺️', video: '/Box-1.mp4' },
+  { id: 3, text: 'לא בא לך לשתף כלום ו.. זה גם בסדר 🫶', video: '/videos/Box4.mp4' },
+  { id: 4, text: 'בשאלה שיש לך התלבטות לגביה 🤔', video: '/videos/Box3.mp4' },
 ]
 
 export default function Step5HowItWorks() {
   const { data, nextStep } = useFunnel()
   const [videoPopup, setVideoPopup] = useState<string | null>(null)
+  const dialogRef = useRef<HTMLDialogElement>(null)
+
+  useEffect(() => {
+    if (videoPopup) {
+      dialogRef.current?.showModal()
+    } else {
+      dialogRef.current?.close()
+    }
+  }, [videoPopup])
 
   const name = data.childName || 'הילד/ה'
   const isFemale = data.childGender === 'female'
@@ -25,10 +34,10 @@ export default function Step5HowItWorks() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -20 }}
-      className="space-y-6"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -20 }}
+        className="space-y-6"
     >
       <div className="text-center">
         <p className="text-lg whitespace-pre-line">{introText}</p>
@@ -59,39 +68,38 @@ export default function Step5HowItWorks() {
         </motion.button>
       </div>
 
-      <AnimatePresence>
+      <dialog
+        ref={dialogRef}
+        onCancel={() => setVideoPopup(null)}
+        onClick={(e) => {
+          if (e.target === dialogRef.current) setVideoPopup(null)
+        }}
+        className="flex w-[min(100%-2rem,24rem)]  flex-col items-center justify-center  border-0 rounded-xl black p-0 shadow-xl overflow-hidden"
+      >
         {videoPopup && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
-            onClick={() => setVideoPopup(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-black rounded-xl overflow-hidden max-w-lg w-full"
-            >
+          <>
+            <div className="flex flex-1 items-center justify-center bg-black">
               <video
                 src={videoPopup}
                 controls
                 autoPlay
-                className="w-full"
+                className="h-full w-full object-fill"
                 onEnded={() => setVideoPopup(null)}
               />
-              <button
-                onClick={() => setVideoPopup(null)}
-                className="w-full py-2 text-white bg-gray-800"
-              >
-                סגור
-              </button>
-            </motion.div>
-          </motion.div>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                dialogRef.current?.close()
+                setVideoPopup(null)
+              }}
+              className="w-full py-3 font-medium text-white rounded-b-xl bg-brand-primary/60 hover:bg-brand-primary/50 transition-colors"
+            >
+              סגור
+            </button>
+          </>
         )}
-      </AnimatePresence>
+      </dialog>
     </motion.div>
   )
 }

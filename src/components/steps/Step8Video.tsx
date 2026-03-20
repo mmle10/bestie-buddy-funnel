@@ -34,7 +34,6 @@ export default function Step8Video() {
           ref={videoRef}
           src="/Happy-kids.mov"
           autoPlay
-          muted
           loop
           playsInline
           preload="auto"

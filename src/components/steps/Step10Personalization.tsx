@@ -34,7 +34,6 @@ export default function Step10Personalization() {
           ref={videoRef}
           src="/bestie-and-amigo.mov"
           autoPlay
-          muted
           loop
           playsInline
           preload="auto"

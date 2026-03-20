@@ -41,7 +41,6 @@ export default function Step6ProgressGraph() {
             ref={videoRef}
             src="/gragh.mov"
             autoPlay
-            muted
             loop
             playsInline
             preload="auto"
