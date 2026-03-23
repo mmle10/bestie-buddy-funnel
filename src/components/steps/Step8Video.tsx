@@ -25,7 +25,9 @@ export default function Step8Video() {
     >
       <div className="text-center">
         <p className="text-lg">
-          עם בסטי ואמיגו הילדים יותר בטוחים שמחים חברותיים משתפים רגועים ולומדים
+         
+Buddy עם 
+הילדים יותר בטוחים, שמחים, חברותיים, משתפים, רגועים ולומדים
         </p>
       </div>
 

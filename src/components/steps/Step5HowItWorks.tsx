@@ -7,8 +7,8 @@ import { useFunnel } from '@/context/FunnelContext'
 const BOXES = [
   { id: 1, text: 'במשהו שפחות טוב או משהו שפגע בך 🙁', video: '/Box-2.mp4' },
   { id: 2, text: 'במשהו טוב שקרה לך ☺️', video: '/Box-1.mp4' },
-  { id: 3, text: 'לא בא לך לשתף כלום ו.. זה גם בסדר 🫶', video: '/videos/Box4.mp4' },
-  { id: 4, text: 'בשאלה שיש לך התלבטות לגביה 🤔', video: '/videos/Box3.mp4' },
+  { id: 3, text: 'לא בא לך לשתף כלום ו.. זה גם בסדר 🫶', video: '/Box-4.mp4' },
+  { id: 4, text: 'בשאלה שיש לך התלבטות לגביה 🤔', video: '/Box-3.mp4' },
 ]
 
 export default function Step5HowItWorks() {
@@ -25,12 +25,9 @@ export default function Step5HowItWorks() {
   }, [videoPopup])
 
   const name = data.childName || 'הילד/ה'
-  const isFemale = data.childGender === 'female'
-  const introText = isFemale
-    ? `כדי להראות לך איך ${name} יכולה להתחזק ולהתעצם כבר מהיום הראשון
-יש ללחוץ על אחת מהדוגמאות ש ${name} יכולה לבחור ולשתף את בסטי`
-    : `כדי להראות לך איך ${name} יכול להתחזק ולהתעצם כבר מהיום הראשון
-יש ללחוץ על אחת מהדוגמאות ש${name} יכול לבחור ולשתף את אמיגו`
+  const introText = `רוצה לראות איך המנטורים החכמים ישפיעו על ${name} כבר מהרגע הראשון? 💪
+
+יש ללחוץ על אחד מהדוגמאות ⬇️`
 
   return (
     <motion.div

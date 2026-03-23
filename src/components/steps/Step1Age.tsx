@@ -19,7 +19,7 @@ export default function Step1Age() {
         <h2 className="text-xl font-bold" style={{ direction: 'rtl' }}>
           מה גיל הילד/ה<span dir="ltr">?</span>
         </h2>
-        <p className="text-gray-600 text-sm">זה יעזור לנו להתאים את התרגילים לחיזוק הביטחון וההתנהגות</p>
+        <p className="text-gray-600 text-sm">זה יעזור לנו להתאים את התרגילים לילד/ה</p>
       </div>
 
       <div className="grid grid-cols-3 gap-3 max-w-sm mx-auto">

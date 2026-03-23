@@ -6,9 +6,9 @@ import { useFunnel } from '@/context/FunnelContext'
 
 const POPUP_TEXT = (
   <>
-    במיוחד בשביל כך נוצר <span dir="ltr">BUDDY</span>
-    {'\u00A0\u00A0'}
-    חברים דיגטליים חכמים שמשמשים כמנטורים שמחזקים מעצימים ונותנים כלים להתמודדות עם אתגרים חברתיים וגם נמצאים שם סתם בכדי לשתף את הדברים שהילדים רוצים
+   BUDDY<span dir="ltr"> במיוחד בשביל כך נוצר </span>
+    {'\u00A0'}
+    מנטורים דיגיטליים חכמים שמחזקים, מעצימים, נותנים כלים להתמודדות עם אתגרים חברתיים וגם נמצאים שם 24/7 כדי להקשיב לכל מה שהילדים רוצים לשתף.
   </>
 )
 
@@ -36,7 +36,7 @@ export default function Step12EmotionalSupport() {
     >
       <div className="text-center">
         <h2 className="text-lg font-bold" style={{ direction: 'rtl' }}>
-          האם חשוב לך של {name} יהיו כלים להתמודדות בביטחון עם מצבים חברתיים<span dir="ltr">?</span>
+          האם חשוב לך שיהיו ל{name} כלים להתמודדות במצבים חברתיים שונים<span dir="ltr">?</span>
         </h2>
       </div>
 

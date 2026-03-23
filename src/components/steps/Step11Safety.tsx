@@ -21,7 +21,7 @@ export default function Step11Safety() {
     >
       <div className="text-center">
         <h2 className="text-lg font-bold" style={{ direction: 'rtl' }}>
-          האם כל מה ש {name} עושה בטלפון באמת מחזק מעצים ומקדם<span dir="ltr">?</span>
+          האם כל מה ש{name} עושה בטלפון באמת מחזק מעצים ומקדם<span dir="ltr">?</span>
         </h2>
       </div>
 

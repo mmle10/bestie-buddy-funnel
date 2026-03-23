@@ -8,6 +8,10 @@ export default function Step7Emotion() {
   const { data, setData, nextStep } = useFunnel()
   const [value, setValue] = useState(data.emotionValue ?? 50)
   const name = data.childName || 'הילד/ה'
+  const isFemale = data.childGender === 'female'
+  const questionText = isFemale
+    ? `מה תהיה ההרגשה של ${name} רק מהידיעה שיש מנטורים שתמיד נמצאים שם עבורה`
+    : `מה תהיה ההרגשה של ${name} רק מהידיעה שיש מנטורים שתמיד נמצאים שם עבורו`
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = parseInt(e.target.value, 10)
@@ -29,16 +33,14 @@ export default function Step7Emotion() {
     >
       <div className="text-center">
         <h2 className="text-lg font-bold text-center" style={{ direction: 'rtl' }}>
-          איך לדעתך מרחב מחזק, מעצים ומקדם שנותן כלים מעשיים יכול להשפיע על ההרגשה
-          <br />
-          של {name}<span dir="ltr">?</span>
+          {questionText}<span dir="ltr">?</span>
         </h2>
       </div>
 
       <div className="space-y-6 max-w-md mx-auto">
         <div className="flex justify-between text-base font-medium text-gray-600 mb-3">
-          <span className="flex items-center gap-1">עצוב <span className="text-2xl">😢</span></span>
-          <span className="flex items-center gap-1"><span className="text-2xl">🙂</span> שמח</span>
+          <span className="flex items-center gap-1">רעה <span className="text-2xl">😢</span></span>
+          <span className="flex items-center gap-1"><span className="text-2xl">🙂</span> טובה</span>
         </div>
 
         <div className="relative py-4">

@@ -59,7 +59,7 @@ export default function Characters() {
         </motion.div>
 
         <div className="text-black font-bold leading-tight text-right">
-          מנטורים חכמים לביטחון עצמי והתנהגות חיובית
+        מנטורים חכמים לטיפוח ביטחון עצמי והתנהגות חיובית
         </div>
       </div>
     </div>

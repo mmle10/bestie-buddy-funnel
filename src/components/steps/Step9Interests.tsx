@@ -33,10 +33,11 @@ export default function Step9Interests() {
       exit={{ opacity: 0, x: -20 }}
       className="space-y-6"
     >
-      <div className="text-center">
+      <div className="text-center space-y-1">
         <h2 className="text-xl font-bold" style={{ direction: 'rtl' }}>
           מה התחביבים של {name}<span dir="ltr">?</span>
         </h2>
+        <p className="text-sm text-gray-600">ניתן לבחור יותר מתחביב אחד</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3">
