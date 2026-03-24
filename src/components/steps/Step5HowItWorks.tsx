@@ -25,10 +25,6 @@ export default function Step5HowItWorks() {
   }, [videoPopup])
 
   const name = data.childName || 'הילד/ה'
-  const introText = `רוצה לראות איך המנטורים החכמים ישפיעו על ${name} כבר מהרגע הראשון? 💪
-
-יש ללחוץ על אחד מהדוגמאות ⬇️`
-
   return (
     <motion.div
         initial={{ opacity: 0, x: 20 }}
@@ -37,7 +33,12 @@ export default function Step5HowItWorks() {
         className="space-y-6"
     >
       <div className="text-center">
-        <p className="text-lg whitespace-pre-line">{introText}</p>
+        <p className="text-lg" style={{ direction: 'rtl' }}>
+          רוצה לראות איך המנטורים החכמים ישפיעו על {name} כבר מהרגע הראשון<span dir="ltr">?💪</span>
+        </p>
+        <p className="text-lg" style={{ direction: 'rtl' }}>
+          יש ללחוץ על אחד מהדוגמאות ⬇️
+        </p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">

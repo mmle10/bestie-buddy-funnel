@@ -100,7 +100,7 @@ export default function Step4Recommendations() {
       className="space-y-6"
     >
       <div className="text-center">
-        <h2 className="text-xl font-bold">הורים מספרים ש…</h2>
+        <h2 className="text-xl font-bold">...<span dir="ltr">הורים מספרים ש</span></h2>
       </div>
 
       <div className="overflow-hidden" ref={emblaRef}>

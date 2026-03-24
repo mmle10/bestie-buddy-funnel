@@ -31,7 +31,7 @@ export default function Step6ProgressGraph() {
           מה תהיה ההתקדמות של {name}<span dir="ltr">?</span>
         </h2>
         <p className="text-sm text-gray-600">
-        בזכות הכלים הפרקטיים שנבנו ע״י מאמנים מוסמכים בשיטת ה- NLP
+        <span dir="ltr">NLP-</span>בזכות הכלים הפרקטיים שנבנו ע״י מאמנים מוסמכים בשיטת ה
         </p>
       </div>
 

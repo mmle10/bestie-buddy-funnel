@@ -24,10 +24,8 @@ export default function Step8Video() {
       className="space-y-6"
     >
       <div className="text-center">
-        <p className="text-lg">
-         
-Buddy עם 
-הילדים יותר בטוחים, שמחים, חברותיים, משתפים, רגועים ולומדים
+        <p className="text-lg" style={{ direction: 'rtl' }}>
+          עם <span dir="ltr">Buddy</span> הילדים יותר בטוחים, שמחים, חברותיים, משתפים, רגועים ולומדים
         </p>
       </div>
 

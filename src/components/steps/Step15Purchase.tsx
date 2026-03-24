@@ -5,6 +5,10 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 import { saveFunnelResponse } from '@/lib/supabase'
 
+/** Cardcom payment page — override with NEXT_PUBLIC_PAYMENT_URL if needed */
+const DEFAULT_PAYMENT_URL =
+  'https://secure.cardcom.solutions/EA/EA5/u08Vsqg5SEq0NnRDP4akyQ/PaymentSP'
+
 const PLANS = [
   {
     id: '12months' as const,
@@ -49,17 +53,15 @@ export default function Step15Purchase() {
         selected_plan: selectedPlan,
       })
 
-      const paymentUrl = process.env.NEXT_PUBLIC_PAYMENT_URL
-      if (paymentUrl) {
-        const url = new URL(paymentUrl)
-        url.searchParams.set('plan', selectedPlan)
-        if (data.email) url.searchParams.set('email', data.email)
-        if (response?.id) url.searchParams.set('funnel_id', String(response.id))
-        window.location.href = url.toString()
-        return
-      }
-
-      setIsSuccess(true)
+      const paymentBase =
+        process.env.NEXT_PUBLIC_PAYMENT_URL?.trim() || DEFAULT_PAYMENT_URL
+      const url = new URL(paymentBase)
+      url.searchParams.set('plan', selectedPlan)
+      if (data.email) url.searchParams.set('email', data.email)
+      if (response?.id && response.id !== 'local')
+        url.searchParams.set('funnel_id', String(response.id))
+      window.location.href = url.toString()
+      return
     } catch (err) {
       console.error(err)
       setError('שגיאה בשמירה. נסה שוב.')
@@ -83,7 +85,7 @@ export default function Step15Purchase() {
             <span dir="ltr">!</span> תודה רבה
           </h2>
           <p className="text-gray-600 max-w-sm mx-auto">
-            כבר ישלח אלייך מייל התחברות <span dir="ltr">BUDDY</span> ל עם הוראות שימוש ופרטי התקשרות למרכז התמיכה שלנו בעת הצורך
+            כבר ישלח אלייך מייל התחברות ל<span dir="ltr"> BUDDY - </span> עם הוראות שימוש ופרטי התקשרות למרכז התמיכה שלנו בעת הצורך
           </p>
         </motion.div>
       ) : (
@@ -133,11 +135,11 @@ export default function Step15Purchase() {
 
           <div className="space-y-2 pt-2 text-right">
             <h3 className="text-sm font-bold">
-              מה כלול בפנים<span dir="ltr">?</span>
+            <span dir="ltr">?</span>מה כלול בפנים
             </h3>
             <p className="text-sm text-gray-700">מנטורים דיגיטליים חכמים מחזקים ומעצימים</p>
             <p className="text-sm text-gray-700">כלים מעשיים לחוסן רגשי וביטחון חברתי</p>
-            <p className="text-sm text-gray-700">תוכן מותאם אישית לפי גיל {'\u00A0\u00A0'}הילד/ה</p>
+            <p className="text-sm text-gray-700">תוכן מותאם אישית לפי גיל הילד/ה</p>
             <p className="text-sm text-gray-700">מרחב תומך ובטוח 24/7 לשיתוף וצמיחה</p>
           </div>
 

@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useFunnel } from '@/context/FunnelContext'
 
 const POPUP_TEXT = (
-  <>
-   BUDDY<span dir="ltr"> במיוחד בשביל כך נוצר </span>
-    {'\u00A0'}
-    מנטורים דיגיטליים חכמים שמחזקים, מעצימים, נותנים כלים להתמודדות עם אתגרים חברתיים וגם נמצאים שם 24/7 כדי להקשיב לכל מה שהילדים רוצים לשתף.
-  </>
+  <p className="text-lg text-center" dir="rtl">
+    במיוחד בשביל כך נוצר <span dir="ltr">BUDDY</span>
+    {'  '}
+    מנטורים דיגיטליים חכמים שמחזקים ומעצימים, נותנים כלים להתמודדות עם אתגרים חברתיים, ונמצאים שם 24/7 כדי להקשיב לכל מה שהילדים רוצים לשתף.
+  </p>
 )
 
 export default function Step12EmotionalSupport() {
@@ -83,7 +83,7 @@ export default function Step12EmotionalSupport() {
               onClick={(e) => e.stopPropagation()}
               className="bg-white rounded-2xl p-6 max-w-md shadow-xl"
             >
-              <p className="text-center mb-6">{POPUP_TEXT}</p>
+              <div className="text-center mb-6">{POPUP_TEXT}</div>
               <button
                 onClick={handleClosePopup}
                 className="w-full py-3 bg-brand-primary text-white rounded-xl font-medium"
